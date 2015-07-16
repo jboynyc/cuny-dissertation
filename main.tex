@@ -1,0 +1,135 @@
+\documentclass[letterpaper,12pt,oneside,openany]{memoir}
+\usepackage{kantlipsum}
+\usepackage{titlecaps}
+\usepackage{relsize}
+\usepackage{tabulary,booktabs,cellspace}
+\usepackage[ngerman,american]{babel}
+\usepackage[babel=once,english=american]{csquotes}
+\usepackage[natbib,authordate,noibid]{biblatex-chicago}
+\usepackage{ccicons}
+\usepackage{fontspec}
+\usepackage{xunicode}
+
+%% Edit config.tex to customize title, author name, etc.
+\include{config}
+
+%% URI appearance
+\usepackage{url}
+\urlstyle{same}
+\def\UrlFont{\relscale{0.75}\em}
+
+%% XeLaTeX font choices
+\defaultfontfeatures{Mapping=tex-text, Renderer=ICU, Ligatures=Common}
+\setmainfont{Gentium Plus}
+\renewcommand{\textbf}{\textmd}
+
+\renewcommand{\postnotedelim}{\addcolon\space}
+\bibliography{lit}
+
+%% Links
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[xetex, 
+    plainpages=false,
+    pdfpagelabels,
+    bookmarksnumbered
+    ]{hyperref}
+
+%\setsecnumdepth{section} % uncomment for numbered sections
+\setsecnumdepth{chapter}
+\settocdepth{chapter}
+
+\widowpenalty1000
+\clubpenalty1000
+
+\DoubleSpacing
+
+\setlength{\footnotesep}{\onelineskip}
+\footmarkstyle{#1.\addspace}
+\setlength{\footmarkwidth}{0pt}
+\setlength{\footmarksep}{-\footmarkwidth}
+
+%% Blockquotes have to be single spaced
+\let\origquote\quote
+\let\origendquote\endquote
+\renewenvironment{quote}{\vspace{-\onelineskip}\origquote\SingleSpacing}%
+    {\origendquote\vspace{-0.75\onelineskip}}
+
+%% Epigraphs have to be single spaced, too
+\let\origepigraph\epigraph
+\renewcommand{\epigraph}[2]{{\SingleSpacing\origepigraph{#1}{#2}}\vspace{0.75\onelineskip}}
+
+\renewcommand\cftchaptername{\chaptername~}
+\renewcommand\cftappendixname{\appendixname~}
+
+\renewcommand{\footnotesize}{\normalsize}
+\renewcommand{\large}{\normalsize}
+\renewcommand{\Large}{\normalsize}
+\renewcommand{\LARGE}{\normalsize}
+\renewcommand{\huge}{\normalsize}
+\renewcommand{\Huge}{\normalsize}
+
+\epigraphfontsize{\normalsize}
+\setlength{\epigraphwidth}{4.017in}
+\setlength{\epigraphrule}{0pt}
+
+\chapterstyle{dowding}
+\setsecheadstyle{\raggedright\titlecap\scshape}
+\setbeforesecskip{-1\onelineskip plus -1ex minus -.2ex}
+\setaftersecskip{\onelineskip}
+\setsubsecheadstyle{\raggedright\titlecap\em}
+\setbeforesubsecskip{-1\onelineskip plus -1ex minus -.2ex}
+\setaftersubsecskip{\onelineskip}
+
+\setlrmarginsandblock{1in}{1in}{*}
+\setulmarginsandblock{1in}{1in}{*}
+\checkandfixthelayout
+
+\newcommand{\Deutsch}[1]{{\selectlanguage{ngerman}\em#1}}
+\renewcommand{\maketitlehookb}{\centering by}
+
+\begin{document} 
+
+\title{\DissTitle}
+\author{\AuthorName}
+\date{}%Draft as of \today}
+
+\frontmatter
+
+\include{Front/titlepage}
+\newpage
+
+\pagestyle{plain}
+\include{Front/copyleft}
+\newpage
+
+\include{Front/approval}
+\newpage
+
+\include{Front/abstract}
+\newpage
+
+\include{Front/dedication}
+\newpage
+
+\include{Front/acknowledgements}
+\newpage
+
+\include{Front/contents}
+\newpage
+
+\include{Front/glossary}
+\newpage
+
+\mainmatter
+\include{Chapters/ch01}
+\include{Chapters/ch02}
+
+\appendix
+\include{Appendices/methods}
+\include{Appendices/archival}
+
+\backmatter
+\SingleSpacing
+\printbibliography
+
+\end{document}
