@@ -8,11 +8,11 @@ I kept looking for something like this when I started dissertation writing, so
 I thought I'd be nice and share what I ended up using. This way you don't have
 the excuse to procrastinate trying to figure all this out.
 
-Run the following to typeset the example dissertation:
+Run *one of the following* to typeset the example dissertation:
 
-    $ xelatex main
-    $ biber main
-    $ xelatex main; xelatex main
+    $ make
+    $ latexmk -xelatex main
+    $ xelatex main; biber main; xelatex main; xelatex main
 
 You can also view [the result][demo-file].
 
@@ -25,4 +25,4 @@ committee members, etc.
 
 Happy dissertating!
 
-[demo-file]: https://drive.google.com/file/d/0B6sdWLCswrs1UTJubFlxMjlWdUE/view?usp=sharing "Demo"
+[demo-file]: https://drive.google.com/file/d/0B6sdWLCswrs1UTJubFlxMjlWdUE/view?usp=sharing "Demo Diss"
