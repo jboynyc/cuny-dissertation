@@ -14,14 +14,15 @@ Run the following to typeset the example dissertation:
     $ biber main
     $ xelatex main; xelatex main
 
-You can also view the resulting pdf
-[here](http://wikisend.com/download/585146/main.pdf).
+You can also view [the result][demo-file].
 
 This should work with any reasonably current TeX distribution (tested using TeX
 Live 2014). If you run into difficulties, hit me up [on
-Twitter](https://twitter.com/jboy).
+Twitter](https://twitter.com/jboy) and I'll do my best to help out.
 
 Edit `config.tex` to customize the dissertation title, names of EO, chair, and
 committee members, etc.
 
 Happy dissertating!
+
+[demo-file]: https://drive.google.com/file/d/0B6sdWLCswrs1UTJubFlxMjlWdUE/view?usp=sharing "Demo"
